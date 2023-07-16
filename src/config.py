@@ -23,7 +23,7 @@ ALPHABET = ['PAD', 'SOS', ' ', '!', '"', '%', '(', ')', ',', '-', '.', '/',
 ### TRAINING ###
 BATCH_SIZE = 16
 DROPOUT = 0.2
-N_EPOCHS = 128
+N_EPOCHS = 0
 CHECKPOINT_FREQ = 10 # save checkpoint every 10 epochs
 DEVICE = 'cuda:0' # or torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 RANDOM_SEED = 42
