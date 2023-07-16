@@ -29,7 +29,7 @@ if WEIGHTS_PATH != None:
 
 preds = prediction(model, PREDICT_PATH, char2idx, idx2char)
 
-f = open(DIR+'/predictions.tsv', 'w')
+f = open(os.fspath(DIR)+'/predictions.tsv', 'w')
 f.write('filename\tprediction\n')
 for item in preds.items():
   f.write(item[0]+'\t'+item[1]+'\n')
