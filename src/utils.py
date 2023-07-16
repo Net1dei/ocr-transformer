@@ -217,7 +217,6 @@ def evaluate(model, criterion, loader, case=True, punct=True):
             metrics['wer'] += sum([int(true_phrases[i] != pred_phrases[i]) \
                         for i in range(BATCH_SIZE)])/BATCH_SIZE
         
-            print('TEST',metrics['wer'])
 
             for i in range(len(true_phrases)):
               result['true'].append(true_phrases[i])
