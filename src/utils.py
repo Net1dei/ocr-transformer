@@ -254,7 +254,7 @@ def prediction(model, test_dir, char2idx, idx2char):
 
     with torch.no_grad():
         for filename in os.listdir(test_dir):
-            img = Image.open(test_dir + filename).convert('RGB')
+            img = Image.open(test_dir + os.fspath(filename)).convert('RGB')
 
             img = process_image(np.asarray(img)).astype('uint8')
             img = img / img.max()
