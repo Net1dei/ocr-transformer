@@ -270,6 +270,36 @@ def prediction(model, test_dir, char2idx, idx2char):
     return preds
 
 
+    
+# MAKE PREDICTION ON CUSTOM IMG
+def prediction_custom(model, test_dir, char2idx, idx2char,path_falg=False):
+
+    preds = []
+
+    model.eval()
+    
+    with torch.no_grad():
+        for filename in test_dir:
+            
+            if path_flag:
+                img = Image.open(path).convert('RGB')
+            else:
+                img = filename
+            
+
+            img = process_image(np.asarray(img)).astype('uint8')
+            img = img / img.max()
+            img = np.transpose(img, (2, 0, 1))
+
+            src = torch.FloatTensor(img).unsqueeze(0).to(DEVICE)
+            if CHANNELS == 1:
+              src = transforms.Grayscale(CHANNELS)(src)
+            out_indexes = model.predict(src)
+            pred = indicies_to_text(out_indexes[0], idx2char)
+            preds.append(pred)
+
+    return preds
+
 class ToTensor(object):
     def __init__(self, X_type=None, Y_type=None):
         self.X_type = X_type
