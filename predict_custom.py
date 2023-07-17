@@ -30,9 +30,5 @@ if WEIGHTS_PATH != None:
   
 #получает на вход массив путей к изображениям или изображения в PIL формате и прогоняет через модель
 def predictC(array): 
-  if type(array[0])==str:
-    pf = True
-  else:
-    pf = False
-  preds = prediction_custom(model, array, char2idx, idx2char, path_flag=pf)
+  preds = prediction_custom(model, array, char2idx, idx2char)
   return preds
