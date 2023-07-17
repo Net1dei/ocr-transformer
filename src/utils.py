@@ -282,7 +282,7 @@ def prediction_custom(model, test_dir, char2idx, idx2char,path_flag=False):
         for filename in test_dir:
             
             if path_flag:
-                img = Image.open(path).convert('RGB')
+                img = Image.open(filename).convert('RGB')
             else:
                 img = filename
             
