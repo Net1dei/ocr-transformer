@@ -273,7 +273,7 @@ def prediction(model, test_dir, char2idx, idx2char):
     
 # MAKE PREDICTION ON CUSTOM IMG
 def prediction_custom(model, test_dir, char2idx, idx2char):
-
+    print('на входе', test_dir, type(test_dir))
     preds = []
 
     model.eval()
@@ -286,7 +286,7 @@ def prediction_custom(model, test_dir, char2idx, idx2char):
                 print('1')
             else:
                 img = filename
-                print(type(img))
+                print('в цикле',img,type(img))
                 
             
 
