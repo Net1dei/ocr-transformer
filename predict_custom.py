@@ -10,7 +10,7 @@ from config import MODEL, ALPHABET, N_HEADS, ENC_LAYERS, DEC_LAYERS, DEVICE, HID
 
 from utils import generate_data, process_data 
 from dataset import TextCollate, TextLoader
-from utils import prediction
+from utils import prediction_custom
 
 char2idx = {char: idx for idx, char in enumerate(ALPHABET)}
 idx2char = {idx: char for idx, char in enumerate(ALPHABET)}
@@ -28,11 +28,6 @@ if WEIGHTS_PATH != None:
   print(f'loading weights from {WEIGHTS_PATH}')
   model.load_state_dict(torch.load(WEIGHTS_PATH))
 
-preds = prediction(model, PREDICT_PATH, char2idx, idx2char)
+preds = prediction_custom(model, PREDICT_PATH, char2idx, idx2char, path_flag=True)
 
-f = open(os.fspath(DIR)+'/predictions.tsv', 'w')
-f.write('filename\tprediction\n')
-for item in preds.items():
-  f.write(item[0]+'\t'+item[1]+'\n')
-f.close()
-print(f'predictions are saved in {DIR}predictions.tsv')
+print(preds)
