@@ -28,6 +28,6 @@ if WEIGHTS_PATH != None:
   print(f'loading weights from {WEIGHTS_PATH}')
   model.load_state_dict(torch.load(WEIGHTS_PATH))
 
-preds = prediction_custom(model, '/content/drive/MyDrive/Test_img.png', char2idx, idx2char, path_flag=True)
+preds = prediction_custom(model, ['/content/drive/MyDrive/Test_img.png'], char2idx, idx2char, path_flag=True)
 
 print(preds)
