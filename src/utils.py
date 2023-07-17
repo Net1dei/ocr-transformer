@@ -283,8 +283,10 @@ def prediction_custom(model, test_dir, char2idx, idx2char,path_flag=False):
             
             if path_flag:
                 img = Image.open(filename).convert('RGB')
+                print('1')
             else:
                 img = filename
+                print('2')
             
 
             img = process_image(np.asarray(img)).astype('uint8')
