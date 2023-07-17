@@ -1,4 +1,3 @@
-import sys
 import torch
 import random
 import pathlib
@@ -10,7 +9,7 @@ from config import MODEL, ALPHABET, N_HEADS, ENC_LAYERS, DEC_LAYERS, DEVICE, HID
 
 from utils import generate_data, process_data 
 from dataset import TextCollate, TextLoader
-from utils import prediction
+from utils import prediction_custom
 
 char2idx = {char: idx for idx, char in enumerate(ALPHABET)}
 idx2char = {idx: char for idx, char in enumerate(ALPHABET)}
@@ -19,16 +18,21 @@ if MODEL == 'model1':
   from models import model1
   model = model1.TransformerModel(len(ALPHABET), hidden=HIDDEN, enc_layers=ENC_LAYERS, dec_layers=DEC_LAYERS,   
                           nhead=N_HEADS, dropout=0.0).to(DEVICE)
-  c=1
 if MODEL == 'model2':
   from models import model2
   model = model2.TransformerModel(len(ALPHABET), hidden=HIDDEN, enc_layers=ENC_LAYERS, dec_layers=DEC_LAYERS,   
                           nhead=N_HEADS, dropout=0.0).to(DEVICE)
-  c=2
 
 if WEIGHTS_PATH != None:
   print(f'loading weights from {WEIGHTS_PATH}')
   model.load_state_dict(torch.load(WEIGHTS_PATH))
+  
+#получает на вход массив путей к изображениям или изображения в PIL формате и прогоняет через модель
+def predictC(array): 
+  if type(array[0])==str:
+    pf = True
+  else:
+    pf = False
+  preds = prediction_custom(model, array, char2idx, idx2char, path_flag=pf)
+  return preds
 
-def aboba():
-  print(c)
