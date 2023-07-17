@@ -272,7 +272,7 @@ def prediction(model, test_dir, char2idx, idx2char):
 
     
 # MAKE PREDICTION ON CUSTOM IMG
-def prediction_custom(model, test_dir, char2idx, idx2char,path_falg=False):
+def prediction_custom(model, test_dir, char2idx, idx2char,path_flag=False):
 
     preds = []
 
