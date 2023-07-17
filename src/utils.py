@@ -272,7 +272,7 @@ def prediction(model, test_dir, char2idx, idx2char):
 
     
 # MAKE PREDICTION ON CUSTOM IMG
-def prediction_custom(model, test_dir, char2idx, idx2char,path_flag=False):
+def prediction_custom(model, test_dir, char2idx, idx2char):
 
     preds = []
 
@@ -281,7 +281,7 @@ def prediction_custom(model, test_dir, char2idx, idx2char,path_flag=False):
     with torch.no_grad():
         for filename in test_dir:
             
-            if path_flag:
+            if type(filename)==str:
                 img = Image.open(filename).convert('RGB')
                 print('1')
             else:
