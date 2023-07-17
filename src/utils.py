@@ -273,9 +273,7 @@ def prediction(model, test_dir, char2idx, idx2char):
     
 # MAKE PREDICTION ON CUSTOM IMG
 def prediction_custom(model, test_dir, char2idx, idx2char):
-    print('на входе', test_dir, type(test_dir))
     preds = []
-
     model.eval()
     
     with torch.no_grad():
@@ -283,13 +281,9 @@ def prediction_custom(model, test_dir, char2idx, idx2char):
             
             if type(filename)==str:
                 img = Image.open(filename).convert('RGB')
-                print('1')
             else:
                 img = filename
-                print('в цикле',img,type(img))
                 
-            
-
             img = process_image(np.asarray(img)).astype('uint8')
             img = img / img.max()
             img = np.transpose(img, (2, 0, 1))
