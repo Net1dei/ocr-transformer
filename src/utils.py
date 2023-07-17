@@ -286,7 +286,8 @@ def prediction_custom(model, test_dir, char2idx, idx2char,path_flag=False):
                 print('1')
             else:
                 img = filename
-                print('2')
+                print(type(img))
+                
             
 
             img = process_image(np.asarray(img)).astype('uint8')
