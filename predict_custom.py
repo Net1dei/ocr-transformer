@@ -25,7 +25,6 @@ if MODEL == 'model2':
                           nhead=N_HEADS, dropout=0.0).to(DEVICE)
 
 if WEIGHTS_PATH != None:
-  print(f'loading weights from {WEIGHTS_PATH}')
   model.load_state_dict(torch.load(WEIGHTS_PATH))
   
 #получает на вход массив путей к изображениям или изображения в PIL формате и прогоняет через модель
