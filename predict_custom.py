@@ -27,7 +27,12 @@ if MODEL == 'model2':
 if WEIGHTS_PATH != None:
   print(f'loading weights from {WEIGHTS_PATH}')
   model.load_state_dict(torch.load(WEIGHTS_PATH))
-
-preds = prediction_custom(model, ['/content/drive/MyDrive/Test_img.png'], char2idx, idx2char, path_flag=True)
-
-print(preds)
+  
+#получает на вход массив путей к изображениям или изображения в PIL формате и прогоняет через модель
+def predictC(array): 
+  if type(array[0])==str:
+    pf = True
+  else:
+    pf = False
+  preds = prediction_custom(model, array, char2idx, idx2char, path_flag=pf)
+  return preds
