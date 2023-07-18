@@ -4,16 +4,16 @@ import numpy as np
 from collections import Counter
 import Augmentor
 from torchvision import transforms
-import src.augmentations
+from src.augmentations import Vignetting, Cutout, UniformNoise, LensDistortion
 from src.utils import *
 from config import LENGTH, CHANNELS
 
 ### AUGMENTATIONS ###
-vignet = augmentations.Vignetting()
-cutout = augmentations.Cutout(min_size_ratio=[1, 4], max_size_ratio=[2, 5])
-un = augmentations.UniformNoise()
+vignet = Vignetting()
+cutout = Cutout(min_size_ratio=[1, 4], max_size_ratio=[2, 5])
+un = UniformNoise()
 tt = ToTensor()
-ld = augmentations.LensDistortion()
+ld = LensDistortion()
 ######################
 
 # text to array of indicies
