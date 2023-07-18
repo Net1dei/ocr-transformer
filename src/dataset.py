@@ -5,7 +5,7 @@ from collections import Counter
 import Augmentor
 from torchvision import transforms
 import augmentations
-from .utils import *
+from utils import *
 from config import LENGTH, CHANNELS
 
 ### AUGMENTATIONS ###
