@@ -2,7 +2,7 @@ import math
 import torch
 import torch.nn as nn
 from torch.nn import Conv2d, MaxPool2d, BatchNorm2d, LeakyReLU
-from utils import PositionalEncoding, count_parameters, log_config
+from src.utils import PositionalEncoding, count_parameters, log_config
 from config import DEVICE, ALPHABET
 
 class TransformerModel(nn.Module):
