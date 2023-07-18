@@ -4,8 +4,8 @@ import numpy as np
 from collections import Counter
 import Augmentor
 from torchvision import transforms
-import augmentations
-from utils import *
+import src.augmentations
+from src.utils import *
 from config import LENGTH, CHANNELS
 
 ### AUGMENTATIONS ###
