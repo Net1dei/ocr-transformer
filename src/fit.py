@@ -3,7 +3,7 @@ import numpy as np
 import torch
 from const import TRAIN_LOG
 from config import DEVICE
-from utils import indicies_to_text, char_error_rate, evaluate, log_metrics
+from .utils import indicies_to_text, char_error_rate, evaluate, log_metrics
 
 def train(model, optimizer, criterion, train_loader):
     """
